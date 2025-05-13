@@ -1,0 +1,23 @@
+image:
+  repository: registry.digitalocean.com/astro-blog-web/astro-blog
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+  hosts:
+    - host: tamiilore.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []  # Leave empty, Cloudflare handles HTTPS externally
+
