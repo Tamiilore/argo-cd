@@ -2,7 +2,8 @@ image:
   repository: registry.digitalocean.com/astro-blog-web/astro-blog
   tag: latest
   pullPolicy: IfNotPresent
-
+  pullSecrets:
+    - name: registry-credentials
 service:
   type: ClusterIP
   port: 80

@@ -18,5 +18,7 @@ spec:
         - name: astro-blog
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullSecrets:
+            - name: registry-credentials
           ports:
             - containerPort: 80
