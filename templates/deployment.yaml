@@ -14,11 +14,11 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      imagePullSecrets:
+        - name: registry-astro-blog-web
       containers:
         - name: astro-blog
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          imagePullSecrets:
-            - name: registry-astro-blog-web
           ports:
             - containerPort: 80
