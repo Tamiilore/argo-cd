@@ -1,6 +1,6 @@
 image:
   repository: registry.digitalocean.com/astro-blog-web/astro-blog
-  tag: v2
+  tag: latest
   pullPolicy: IfNotPresent
   pullSecrets:
     - name: registry-astro-blog-web
