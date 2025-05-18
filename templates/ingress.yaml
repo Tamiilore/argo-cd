@@ -24,7 +24,7 @@ spec:
                   number: 80
           {{- end }}
     {{- end }}
-  {{- if .Values.ingress.tls }}
+  {{- if and .Values.ingress.tls (gt (len .Values.ingress.tls) 0) }}
   tls:
     {{- toYaml .Values.ingress.tls | nindent 4 }}
   {{- end }}
