@@ -4,6 +4,7 @@ image:
   pullPolicy: IfNotPresent
   pullSecrets:
     - name: registry-astro-blog-web
+
 service:
   type: ClusterIP
   port: 80
@@ -21,9 +22,15 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
+          backend:
+            service:
+              name: astro
+              port:
+                number: 80
   tls:
     - hosts:
         - tamiilore.dev
       secretName: astro-tls
+
 
 
