@@ -24,10 +24,11 @@ spec:
                   number: 80
           {{- end }}
     {{- end }}
-  {{- if and .Values.ingress.tls (gt (len .Values.ingress.tls) 0) }}
+  {{- if .Values.ingress.tls }}
   tls:
     {{- toYaml .Values.ingress.tls | nindent 4 }}
   {{- end }}
 {{- end }}
+
 
 
