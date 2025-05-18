@@ -19,9 +19,9 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ .backend.service.name }}
+                name: {{ $.Release.Name }}
                 port:
-                  number: {{ .backend.service.port.number }}
+                  number: 80
           {{- end }}
     {{- end }}
   {{- if and .Values.ingress.tls (gt (len .Values.ingress.tls) 0) }}
@@ -29,4 +29,5 @@ spec:
     {{- toYaml .Values.ingress.tls | nindent 4 }}
   {{- end }}
 {{- end }}
+
 
