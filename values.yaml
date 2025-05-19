@@ -30,7 +30,7 @@ ingress:
   tls:
     - hosts:
         - tamiilore.dev
-      secretName: astro-tls
+      secretName: astro-tls-alt
 
 
 
