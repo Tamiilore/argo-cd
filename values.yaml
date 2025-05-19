@@ -5,9 +5,6 @@ image:
   pullSecrets:
     - name: registry-astro-blog-web
 
-podSecurityContext:
-  runAsNonRoot: true
-
 service:
   type: ClusterIP
   port: 80
